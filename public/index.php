@@ -35,7 +35,6 @@ $articles = getHomepageArticle($db);
 $homepageArticle = getHomepageArticle($db);
 
 // var_dump($menu);
-var_dump($homepageArticle);
 /*
 Appel de la vue homepage
 */

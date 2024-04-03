@@ -4,7 +4,7 @@ function getHomepageArticle(PDO $cn) : string|array
     $sql = "
     SELECT
         GROUP_CONCAT(cha.category_cg_id) AS cg_id,
-        GROUP_CONCAT(category.cg_name SEPARATOR '|||') AS cg_name,
+        GROUP_CONCAT(category.cg_name SEPARATOR '".DB_SEPARATOR."') AS cg_name,
         article.ar_id,
         article.ar_title,
         LEFT(article.ar_text, 260) AS ar_text,
