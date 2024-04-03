@@ -1,6 +1,5 @@
 <?php
-
-function getArticles(PDO $connect) : array|string
+function getHomepageArticle(PDO $cn) : string|array
 {
     $sql = "
     SELECT
@@ -20,16 +19,10 @@ function getArticles(PDO $connect) : array|string
     GROUP BY article.ar_id
     ORDER BY article.ar_datetime DESC";
     try{
-        $query = $connect->query($sql);
-
-        if($query->rowCount()==0) return "Pas d'articles";
-
+        $query = $cn->query($sql);
         $result = $query->fetchAll();
-
         $query->closeCursor();
-
         return $result;
-
     }catch(Exception $e){
         return $e->getMessage();
     }
